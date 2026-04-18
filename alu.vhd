@@ -36,10 +36,10 @@ begin
         when "0101" =>
             ALUOUT <= not ABUS;
 
-        when "0110" =>  -- MOV
+        when "0110" =>  
             ALUOUT <= ABUS;
 
-        when "0111" =>  -- NOP
+        when "0111" =>  
             ALUOUT <= (others => '0');
 
         when others =>
@@ -48,3 +48,4 @@ begin
     end case;
 end process;
 end Behavioral;
+-- ALU completed
