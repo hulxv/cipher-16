@@ -1,0 +1,140 @@
+$date
+  Fri Apr 24 04:43:45 2026
+$end
+$version
+  GHDL v0
+$end
+$timescale
+  1 fs
+$end
+$scope module standard $end
+$upscope $end
+$scope module std_logic_1164 $end
+$upscope $end
+$scope module numeric_std $end
+$upscope $end
+$scope module tb_register_file $end
+$var reg 1 ! clk $end
+$var reg 1 " rst $end
+$var reg 1 # rdwen $end
+$var reg 4 $ ra[3:0] $end
+$var reg 4 % rb[3:0] $end
+$var reg 4 & rd[3:0] $end
+$var reg 16 ' res[15:0] $end
+$var reg 16 ( srca[15:0] $end
+$var reg 16 ) srcb[15:0] $end
+$var reg 1 * sim_done $end
+$scope module uut $end
+$var reg 1 + clk $end
+$var reg 1 , rst $end
+$var reg 1 - rdwen $end
+$var reg 4 . ra[3:0] $end
+$var reg 4 / rb[3:0] $end
+$var reg 4 0 rd[3:0] $end
+$var reg 16 1 res[15:0] $end
+$var reg 16 2 srca[15:0] $end
+$var reg 16 3 srcb[15:0] $end
+$comment registers is not handled $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+0!
+1"
+0#
+b0000 $
+b0000 %
+b0000 &
+b0000000000000000 '
+b0000000000000000 (
+b0000000000000000 )
+0*
+0+
+1,
+0-
+b0000 .
+b0000 /
+b0000 0
+b0000000000000000 1
+b0000000000000000 2
+b0000000000000000 3
+#5000000
+1!
+1+
+#10000000
+0!
+0"
+0+
+0,
+#15000000
+1!
+1+
+#20000000
+0!
+b0100 $
+b1011 %
+0+
+b0100 .
+b1011 /
+#22000000
+1#
+b1011 &
+b1010101010101010 '
+1-
+b1011 0
+b1010101010101010 1
+#25000000
+1!
+b1010101010101010 )
+1+
+b1010101010101010 3
+#30000000
+0!
+0+
+#32000000
+0#
+b0001 &
+b1010000100010001 '
+0-
+b0001 0
+b1010000100010001 1
+#35000000
+1!
+1+
+#40000000
+0!
+0+
+#42000000
+b1011 $
+b0001 %
+b1010101010101010 (
+b0000000000000000 )
+b1011 .
+b0001 /
+b1010101010101010 2
+b0000000000000000 3
+#44000000
+1"
+b0000000000000000 (
+1,
+b0000000000000000 2
+#45000000
+1!
+1+
+#50000000
+0!
+0+
+#54000000
+0"
+0,
+#55000000
+1!
+1+
+#60000000
+0!
+0+
+#64000000
+1*
+#65000000
+1!
+1+
