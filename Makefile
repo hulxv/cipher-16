@@ -1,7 +1,8 @@
 # Flag to indicate wether we are in debug mode or not
 DEBUG ?= 1
 # Default max simulation time
-SIMTIME ?= 100ns
+SIMTIME ?= 1us
+
 
 # VHDL compiler
 GHDL = ghdl
@@ -47,7 +48,7 @@ all: builddir $(TARGETS)
 
 
 # IP with test bench
-%: $(SRC)/%.vhdl $(TB)/%_tb.vhdl
+%: builddir $(SRC)/%.vhdl $(TB)/%_tb.vhdl
 	@echo "\033[0;33m[Compiling \`$@.vhdl\` & \`$@_tb.vhdl\` ...]\033[0m"
 	$(GHDL) -s --workdir=$(BUILD) $(SRC)/$@.vhdl $(TB)/$@_tb.vhdl
 	$(GHDL) -a --workdir=$(BUILD) $(SRC)/$@.vhdl $(TB)/$@_tb.vhdl
@@ -61,7 +62,7 @@ all: builddir $(TARGETS)
 
 
 # IP without test bench
-%: $(SRC)/%.vhdl
+%: builddir $(SRC)/%.vhdl
 	@echo "\033[0;33m[Compiling \`$@.vhdl\` ...]\033[0m"
 	$(GHDL) -s --workdir=$(BUILD) $(SRC)/$@.vhdl
 	$(GHDL) -a --workdir=$(BUILD) $(SRC)/$@.vhdl
