@@ -46,6 +46,23 @@ all: builddir $(TARGETS)
 # Dependencies
 # <my entity>: <my other entity>
 
+# Coprocessor: compile all .vhd/.vhdl dependencies in order, then simulate
+coprocessor: builddir
+	@echo "\033[0;33m[Compiling coprocessor and dependencies...]\033[0m"
+	$(GHDL) -a --workdir=$(BUILD) \
+		$(SRC)/non_linear_lookup.vhd \
+		$(SRC)/alu.vhdl \
+		$(SRC)/shifter.vhd \
+		$(SRC)/register_file.vhd \
+		$(SRC)/combinational_circuit.vhd \
+		$(SRC)/coprocessor.vhd \
+		$(TB)/coprocessor_tb.vhd
+	$(GHDL) -e --workdir=$(BUILD) -o $(BUILD)/coprocessor_tb coprocessor_tb
+	@echo "\033[0;33m[Running simulation of \`coprocessor_tb\` ...]\033[0m"
+	@./$(BUILD)/coprocessor_tb --vcd=$(SIMU)/coprocessor.vcd --assert-level=$(ASSERTLVL) --stop-time=$(SIMTIME) 2> /dev/null || \
+	$(GHDL) -r --workdir=$(BUILD) coprocessor_tb --vcd=$(SIMU)/coprocessor.vcd --assert-level=$(ASSERTLVL) --stop-time=$(SIMTIME) && \
+		echo "\033[0;32m[coprocessor PASS]\033[0m" || (echo "\033[0;31m[coprocessor FAIL]\033[0m"; exit $(ERROREXIT))
+
 
 # IP with test bench
 %: builddir $(SRC)/%.vhdl $(TB)/%_tb.vhdl

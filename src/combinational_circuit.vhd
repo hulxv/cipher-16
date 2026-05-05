@@ -15,16 +15,16 @@ signal lut_out: std_logic_vector(7 downto 0);
 begin
 	
 	-- Non-linear Lookup Operation Unit--
-	Non_LUT :entity non_linear_lookup 
+	Non_LUT :entity work.non_linear_lookup 
 	port map( LUTIN => ABUS(7 downto 0) , LUTOUT => lut_out);  
 	tmp_out1 <= ABUS(15 downto 8) & lut_out;	 
 	
 	-- ALU Unit--
-	ALU : entity alu
+	ALU : entity work.alu
 	port map ( ABUS =>  ABUS , BBUS => BBUS , ALUsel => CTRL , ALUOUT => tmp_out2);
 	
 	-- Shifter Unit--
-	Shifter : entity shifter
+	Shifter : entity work.shifter
 	port map(B_BUS => BBUS , CTRL => CTRL , SHIFT_OUT => tmp_out3);
 	
 	-- Control Logic Unit--
